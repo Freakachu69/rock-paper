@@ -1,1 +1,1 @@
-# rock-paper
+A five-round game of Rock Paper Scissors played entirely in the console. By the end of this project I will have demonstrated a knowledge of basic Javascript.
