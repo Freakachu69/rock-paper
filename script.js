@@ -1,5 +1,3 @@
-function playGame() {
-
     let humanScore = 0
     let computerScore = 0
 
@@ -15,26 +13,12 @@ function playGame() {
         }
     }
 
-    function getHumanChoice() {
-        input = prompt("Rock, paper, or scissors?")
-
-        input = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
-        
-        if (input == "Rock" || input == "Paper" || input == "Scissors") {
-            return input;
-        }
-    }
-
-    let humanChoice
+    //let humanChoice
     let computerChoice
 
     function playRound(humanChoice,computerChoice) {
-        humanChoice = getHumanChoice()
         computerChoice = getComputerChoice()
-        if (input != "Rock" && input != "Paper" && input != "Scissors") {
-            console.log("Error: Please choose rock, paper, or scissors.")
-            playRound(humanChoice,computerChoice)
-        } else if ((humanChoice === "Rock" && computerChoice === "Paper") || (humanChoice === "Paper" && computerChoice === "Scissors") || (humanChoice === "Scissors" && computerChoice === "Rock")) {
+        if ((humanChoice === "Rock" && computerChoice === "Paper") || (humanChoice === "Paper" && computerChoice === "Scissors") || (humanChoice === "Scissors" && computerChoice === "Rock")) {
             ++computerScore;
             console.log("Ouch! " + computerChoice + " beats " + humanChoice + ".");
             console.log ("You: " + humanScore + "\nComputer: " + computerScore);
@@ -47,20 +31,20 @@ function playGame() {
             console.log ("You: " + humanScore + "\nComputer: " + computerScore);
         }
     }
+  
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+    rock.addEventListener("click", () => playRound("Rock",computerChoice));
+    paper.addEventListener("click", () => playRound("Paper",computerChoice));
+    scissors.addEventListener("click", () => playRound("Scissors",computerChoice));
+    
 
-    playRound(humanChoice,computerChoice);
-    playRound(humanChoice,computerChoice);
-    playRound(humanChoice,computerChoice);
-    playRound(humanChoice,computerChoice);
-    playRound(humanChoice,computerChoice);
-
-    if (humanScore > computerScore) {
+    if (humanScore === 5) {
         console.log("You Win!")
-    } else if (computerScore > humanScore) {
+    } 
+    if (computerScore === 5) {
         console.log("Computer Wins.")
-    } else {
-        console.log("No one wins.")
     }
-}
 
-playGame()
+    // turn those into dom methods in the results div
