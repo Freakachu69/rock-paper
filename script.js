@@ -2,11 +2,11 @@
     let computerScore = 0
 
     function getComputerChoice() {
-        Math.random()
+        let random = Math.floor(Math.random() * 3)
 
-        if (Math.random() <= .333) {
+        if (random === 0) {
             return "Rock";
-        } else if (Math.random() <= .666) {
+        } else if (random === 1) {
             return "Paper";
         } else {
             return "Scissors";
@@ -31,18 +31,17 @@
         }
         
         if (humanScore === 5) {
-            winner.textContent = "You Win!";
+            winner.textContent = "YOU WIN!";
             humanScore = 0;
             computerScore = 0;
         } else if (computerScore === 5) {
-            winner.textContent = "Computer Wins.";
+            winner.textContent = "COMPUTER WINS.";
             humanScore = 0;
             computerScore = 0;
         } else {
             winner.textContent = "";
         }
     }
-    //line breaks not working, <br> doesn't work either
 
     const result = document.querySelector('#result');
     const score = document.querySelector('#score');
